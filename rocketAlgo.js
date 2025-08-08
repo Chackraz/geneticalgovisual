@@ -1,0 +1,46 @@
+//RocketAlgoScript;
+
+const canvas = document.getElementById("simCanvas");
+const ctx = canvas.getContext("2d");
+const GRAVITY = 0.02;
+const NUM_ROCKETS = 10;
+const MUTATION_RATE = 0.1;
+const TARGET_RADIUS = 10;
+const INITIAL_FUEL = 100;
+const FRICTION = 0.98;
+const MAX_THRUST = 0.2;
+const MAX_ROTATION = Math.PI / 18;
+
+let target = { x: canvas.width / 2, y: 100 };
+ canvas.addEventListener("click", (e) => {
+      const rect = canvas.getBoundingClientRect();
+      target = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+    });
+class Rocket class Rocket {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.angle = 90;
+        this.speed = 5;
+        this.rounds = 0;
+        this.maxRounds = 10;
+        this.exploded = false;
+        this.success = false;
+        this.dx = 0;
+        this.dy = 0;
+        this.trail = [{ x: this.x, y: this.y }];
+      }
+      updateDirection() {
+        const rad = (this.angle * Math.PI) / 180;
+        this.dx = Math.cos(rad);
+        this.dy = Math.sin(rad);
+      }
+      move(step) {
+        this.x += step * this.dx;
+        this.y += step * this.dy;
+        this.trail.push({ x: this.x, y: this.y });
+      }
+    }
