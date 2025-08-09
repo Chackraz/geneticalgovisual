@@ -3,66 +3,14 @@ let target = null;
 let statusMessage = "Inicie el Simulador";
 const canvas = document.getElementById('simCanvas');
 const ctx = canvas.getContext('2d');
-const logDiv = document.getElementById('log');
-const rocketPos = document.getElementById('rocketPos');
-const targetPos = document.getElementById('targetPos');
 
 
     // Dibuja todo en el canvas: mensaje, trayectoria, objetivo y cohete
-    function drawScene() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'linear-gradient(to top, #8ecae6, #000000)';
-      ctx.font = '18px Arial';
-      ctx.fillText(statusMessage, 20, 30);
-
-/*
-
-      canvas {
-        display: block;
-        margin: auto;
-        background: linear-gradient(to top, #8ecae6, #000000);
-        border: 2px solid #000;
-      }
-    
-*/
-
-          
-      if (rocket.trail.length > 1) {
-        ctx.strokeStyle = 'rgba(255, 0, 0, 0.3)';
-        ctx.beginPath();
-        ctx.moveTo(rocket.trail[0].x, rocket.trail[0].y);
-        for (let p of rocket.trail) ctx.lineTo(p.x, p.y);
-        ctx.stroke();
-      }
-
-      if (target) {
-        ctx.fillStyle = rocket.success ? 'red' : 'green';
-        const radius = rocket.success ? 64 : 32;
-        ctx.beginPath();
-        ctx.arc(target.x, target.y, radius, 0, 2 * Math.PI);
-        ctx.fill();
-      }
-
-      ctx.save();
-      ctx.translate(rocket.x, rocket.y);
-      if (rocket.exploded || rocket.success) {
-        ctx.fillStyle = 'red';
-        const radius = rocket.success ? 16 : 8;
-        ctx.beginPath();
-        ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-        ctx.fill();
-      } else {
-        ctx.rotate((rocket.angle * Math.PI) / 180);
-        ctx.fillStyle = 'red';
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(-10, -5);
-        ctx.lineTo(-10, 5);
-        ctx.closePath();
-        ctx.fill();
-      }
-      ctx.restore();
-    }
+function drawScene() {
+    //dibujar nubes 
+    //dibujar arboles 
+    //dibujar 
+}
 
 canvas.addEventListener('click', (e) => {
       const rect = canvas.getBoundingClientRect();
@@ -86,7 +34,31 @@ class Rocket{
 
 class star {};
 class tree {}; 
-class cloud {}; 
+class cloud {
+  constructor(x, y, tamaño, color) {
+    this.x = x;
+    this.y = y;
+    this.tamaño = tamaño;
+    this.color = color;
+  }
+
+  draw(ctx) {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+
+    // Dibujamos varios círculos solapados para formar la nube
+    ctx.arc(this.x, this.y, this.tamaño, 0, Math.PI * 2);
+    ctx.arc(this.x + this.tamaño * 0.8, this.y - this.tamaño * 0.4, this.tamaño * 0.9, 0, Math.PI * 2);
+    ctx.arc(this.x + this.tamaño * 1.6, this.y, this.tamaño, 0, Math.PI * 2);
+    ctx.arc(this.x + this.tamaño * 0.8, this.y + this.tamaño * 0.4, this.tamaño * 0.9, 0, Math.PI * 2);
+
+    ctx.closePath();
+    ctx.fill();
+  }
+}
+ let cloud1 = cloud.new(20,20,60,101010);
+    cloud1.draw; 
+}; 
 
 
       
