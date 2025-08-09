@@ -60,3 +60,40 @@ function drawScene() {
       ctx.fillText(statusMessage, 20, 30);
     };
 
+   let rocket;
+    let target = null;
+    let statusMessage = "Haz clic en el canvas para elegir un objetivo.";
+    let interval = null;
+    let subStepsRemaining = 0;
+
+    function resetRocket() {
+      rocket = new Rocket(50, 300);
+      logDiv.innerHTML = "";
+      updatePositions();
+      clearInterval(interval);
+    }
+
+    canvas.addEventListener('click', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      target = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+      resetRocket();
+      updatePositions();
+      statusMessage = "En curso...";
+      drawScene();
+      step();
+    });
+
+    function updatePositions() {
+      rocketPos.textContent = `🚀 Cohete: (x: ${rocket.x.toFixed(1)}, y: ${rocket.y.toFixed(1)})`;
+      targetPos.textContent = target ? `🎯 Objetivo: (x: ${target.x.toFixed(1)}, y: ${target.y.toFixed(1)})` : '🎯 Objetivo: (x: –, y: –)';
+    }
+
+    function logDecision(round, decision, speed, angle, expectedX, expectedY) {
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+      entry.innerHTML = `<strong>Ronda ${round}</strong><br>Decisión: <strong>${decision}</strong><br>Velocidad: ${speed}, Ángulo: ${angle}°<br>Próxima posición esperada: (x: ${expectedX.toFixed(1)}, y: ${expectedY.toFixed(1)})<br>--------------------------`;
+      logDiv.appendChild(entry);
+      logDiv.scrollTop = logDiv.scrollHeight;
+    }
+
+
