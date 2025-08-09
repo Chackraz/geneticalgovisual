@@ -18,9 +18,6 @@ class Rocket{
       
       
 };
-class target{
-      
-};
 
 class stars {};
 class trees {}; 
