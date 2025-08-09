@@ -41,7 +41,6 @@ class cloud {
     // Dibujamos varios círculos solapados para formar la nube
     ctx.arc(this.x, this.y, this.tamaño, 0, Math.PI * 2);
     ctx.arc(this.x + this.tamaño * 0.8, this.y - this.tamaño * 0.4, this.tamaño * 0.9, 0, Math.PI * 2);
-    ctx.arc(this.x + this.tamaño * 1.6, this.y, this.tamaño, 0, Math.PI * 2);
     ctx.arc(this.x + this.tamaño * 0.8, this.y + this.tamaño * 0.4, this.tamaño * 0.9, 0, Math.PI * 2);
 
     ctx.closePath();
