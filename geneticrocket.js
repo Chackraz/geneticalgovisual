@@ -42,7 +42,7 @@ class cloud {
     this.color = color;
   }
 
-  draw(ctx) {
+  draw() {
     ctx.fillStyle = this.color;
     ctx.beginPath();
 
@@ -57,7 +57,7 @@ class cloud {
   }
 }
  let cloud1 = cloud.new(20,20,60,101010);
-    cloud1.draw; 
+    cloud1.draw(); 
 }; 
 
 
