@@ -41,13 +41,13 @@ class cloud {
     // Dibujamos varios círculos solapados para formar la nube
     ctx.arc(this.x, this.y, this.tamaño, 0, Math.PI * 2);
     ctx.arc(this.x + this.tamaño * 0.8, this.y - this.tamaño * 0.4, this.tamaño * 0.9, 0, Math.PI * 2);
-    ctx.arc(this.x + this.tamaño * 0.8, this.y + this.tamaño * 0.4, this.tamaño * 0.9, 0, Math.PI * 2);
+    ctx.arc(this.x + this.tamaño * 1.6, this.y , this.tamaño * 0.9, 0, Math.PI * 2);
 
     ctx.closePath();
     ctx.fill();
   }
 }
- let cloud1 = new cloud(20,20,60,101010);
+ let cloud1 = new cloud(200,200,60,101010);
     cloud1.draw(); 
 
 
