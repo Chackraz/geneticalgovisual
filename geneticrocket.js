@@ -1,5 +1,5 @@
 //geneticAlgo-RocketSim
- let target = null;
+let target = null;
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const logDiv = document.getElementById('log');
