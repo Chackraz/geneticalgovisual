@@ -58,7 +58,7 @@ class cloud {
 }
  let cloud1 = cloud.new(20,20,60,101010);
     cloud1.draw(); 
-}; 
+
 
 
       
