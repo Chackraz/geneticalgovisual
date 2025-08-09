@@ -19,7 +19,7 @@ let target = { x: canvas.width / 2, y: 100 };
         y: e.clientY - rect.top
       };
     });
-class Rocket class Rocket {
+class Rocket {
       constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -43,4 +43,4 @@ class Rocket class Rocket {
         this.y += step * this.dy;
         this.trail.push({ x: this.x, y: this.y });
       }
-    }
+    };
