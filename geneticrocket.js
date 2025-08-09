@@ -47,7 +47,7 @@ class cloud {
     ctx.fill();
   }
 }
- let cloud1 = new cloud(200,200,60,101010);
+ let cloud1 = new cloud(200,200,60,white);
     cloud1.draw(); 
 
 
