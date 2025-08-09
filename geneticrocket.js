@@ -22,14 +22,6 @@ canvas.addEventListener('click', (e) => {
       //step();
     });
 class Rocket{
-      constructor(){
-            
-      }
-      move (){
-            
-      }
-      
-      
 };
 
 class star {};
@@ -56,7 +48,7 @@ class cloud {
     ctx.fill();
   }
 }
- let cloud1 = cloud.new(20,20,60,101010);
+ let cloud1 = new cloud(20,20,60,101010);
     cloud1.draw(); 
 
 
