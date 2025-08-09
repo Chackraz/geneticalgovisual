@@ -45,3 +45,18 @@ let target = { x: canvas.width / 2, y: 100 };
       };
     });
 
+ function resetRocket() {
+      rocket = new Rocket(50, 300);
+      logDiv.innerHTML = "";
+      updatePositions();
+      clearInterval(interval);
+    };
+
+
+function drawScene() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'black';
+      ctx.font = '18px Arial';
+      ctx.fillText(statusMessage, 20, 30);
+    };
+
