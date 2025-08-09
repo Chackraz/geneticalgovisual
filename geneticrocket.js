@@ -26,10 +26,10 @@ class Rocket{
       
 };
 
-class stars {};
-class trees {}; 
-class clouds {}; 
+class star {};
+class tree {}; 
+class cloud {}; 
 
-const stars
+
       
 
